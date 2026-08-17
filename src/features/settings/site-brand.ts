@@ -11,9 +11,9 @@ export type SiteBrand = {
 };
 
 export const defaultSiteBrand: SiteBrand = {
-	name: "GMShop Edge",
+	name: "SHUILIYUE",
 	logoUrl: "/favicon.png",
-	title: "GMShop Edge",
+	title: "SHUILIYUE",
 	customHtml: "",
-	defaultLocale: "en-US",
+	defaultLocale: "zh-CN",
 };
