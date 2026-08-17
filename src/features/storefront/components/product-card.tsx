@@ -27,6 +27,7 @@ export function StorefrontProductCard({
 		BigInt(product.listPriceMinor) > BigInt(product.priceMinor);
 	const availability = stockLabel(product);
 	let price: string = m.store_price_free();
+
 	if (!isFree) {
 		price = singlePrice
 			? currency.format(
@@ -47,6 +48,7 @@ export function StorefrontProductCard({
 					),
 				});
 	}
+
 	return (
 		<article className="group min-w-0">
 			<Link
@@ -67,6 +69,7 @@ export function StorefrontProductCard({
 							<Boxes className="size-12 text-primary/60" />
 						</div>
 					)}
+
 					{product.deliveryTypes.includes("stock") && available ? (
 						<div className="absolute end-3 top-3">
 							<Badge className="bg-emerald-400 text-emerald-950">
@@ -76,6 +79,7 @@ export function StorefrontProductCard({
 						</div>
 					) : null}
 				</div>
+
 				<div className="flex flex-1 flex-col px-2 pt-4 pb-2">
 					<div className="flex min-h-5 flex-wrap gap-x-3 gap-y-1">
 						{product.tags.slice(0, 3).map((tag) => (
@@ -84,15 +88,19 @@ export function StorefrontProductCard({
 							</Badge>
 						))}
 					</div>
+
 					<div className="mt-2 font-semibold text-lg transition-colors group-hover:text-primary">
 						<span className="line-clamp-1">{product.name}</span>
 					</div>
+
 					<p className="mt-2 line-clamp-2 min-h-10 text-muted-foreground text-sm">
 						{product.description}
 					</p>
+
 					<div className="mt-auto flex items-end justify-between gap-3 pt-5">
 						<div className="flex flex-wrap items-baseline gap-2">
 							<strong className="text-primary text-xl">{price}</strong>
+
 							{hasDiscount && product.listPriceMinor ? (
 								<span className="text-muted-foreground text-xs line-through">
 									{currency.format(
@@ -103,12 +111,10 @@ export function StorefrontProductCard({
 								</span>
 							) : null}
 						</div>
-						{product.salesCount > 0 || availability ? (
+
+						{availability ? (
 							<div className="text-right text-muted-foreground text-xs">
-								{product.salesCount > 0 ? (
-									<p>{m.store_sales({ count: product.salesCount })}</p>
-								) : null}
-								{availability ? <p>{availability}</p> : null}
+								<p>{availability}</p>
 							</div>
 						) : null}
 					</div>
@@ -123,18 +129,23 @@ export function StorefrontProductCardSkeleton() {
 		<article className="min-w-0">
 			<div className="flex h-full flex-col rounded-3xl bg-muted/25 p-3">
 				<Skeleton className="aspect-video rounded-2xl" />
+
 				<div className="flex flex-1 flex-col px-2 pt-4 pb-2">
 					<div className="flex min-h-5 gap-2">
 						<Skeleton className="h-5 w-16 rounded-full" />
 						<Skeleton className="h-5 w-20 rounded-full" />
 					</div>
+
 					<Skeleton className="mt-2 h-7 w-3/4" />
+
 					<div className="mt-2 grid min-h-10 content-start gap-2">
 						<Skeleton className="h-4 w-full" />
 						<Skeleton className="h-4 w-4/5" />
 					</div>
+
 					<div className="mt-auto flex items-end justify-between gap-3 pt-5">
 						<Skeleton className="h-7 w-24" />
+
 						<div className="grid justify-items-end gap-1">
 							<Skeleton className="h-3 w-14" />
 							<Skeleton className="h-3 w-12" />
@@ -148,7 +159,10 @@ export function StorefrontProductCardSkeleton() {
 
 function stockLabel(product: StorefrontCatalogProduct) {
 	if (product.availableStock === 0) return m.store_sold_out();
-	if (product.availableStock > 0 && product.availableStock <= 5)
+
+	if (product.availableStock > 0 && product.availableStock <= 5) {
 		return m.store_low_stock({ count: product.availableStock });
+	}
+
 	return null;
 }
