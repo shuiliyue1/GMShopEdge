@@ -56,7 +56,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 	staleTime: 5 * 60_000,
 	loader: () => getSiteBrandFn(),
 	head: ({ loaderData }) => {
-		const title = loaderData?.title || "水里月｜网上营业厅";
+		const title = "水里月｜网上营业厅";
 		const logoUrl = loaderData?.logoUrl ?? "/favicon.png";
 		return {
 			meta: [
