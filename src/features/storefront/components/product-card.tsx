@@ -103,12 +103,9 @@ export function StorefrontProductCard({
 								</span>
 							) : null}
 						</div>
-						{product.salesCount > 0 || availability ? (
+						{availability ? (
 							<div className="text-right text-muted-foreground text-xs">
-								{product.salesCount > 0 ? (
-									<p>{m.store_sales({ count: product.salesCount })}</p>
-								) : null}
-								{availability ? <p>{availability}</p> : null}
+								<p>{availability}</p>
 							</div>
 						) : null}
 					</div>
