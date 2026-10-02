@@ -11,9 +11,9 @@ export type SiteBrand = {
 };
 
 export const defaultSiteBrand: SiteBrand = {
-	name: "SHUILIYUE",
+	name: "水里月",
 	logoUrl: "/favicon.png",
-	title: "SHUILIYUE",
+	title: "水里月｜网上营业厅",
 	customHtml: "",
 	defaultLocale: "zh-CN",
 };
