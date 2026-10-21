@@ -1,6 +1,6 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "gmshop-edge",
+	"name": "shuiliyue-store",
 	"main": "src/server-entry.ts",
 	"compatibility_date": "2026-07-01",
 	"compatibility_flags": ["nodejs_compat"],
@@ -10,28 +10,28 @@
 	"d1_databases": [
 		{
 			"binding": "DB",
-			"database_name": "gmshop-edge",
+			"database_name": "shuiliyue-store",
 			"migrations_dir": "drizzle"
 		}
 	],
-	"r2_buckets": [{ "binding": "FILES", "bucket_name": "gmshop-edge-files" }],
+	"r2_buckets": [{ "binding": "FILES", "bucket_name": "shuiliyue-store" }],
 	"send_email": [{ "name": "EMAIL" }],
 	"kv_namespaces": [
 		{ "binding": "CACHE" }
 	],
 	"queues": {
 		"producers": [
-			{ "binding": "COMMERCE_QUEUE", "queue": "gmshop-edge-commerce" }
+			{ "binding": "COMMERCE_QUEUE", "queue": "shuiliyue-store" }
 		],
 		"consumers": [
 			{
-				"queue": "gmshop-edge-commerce",
+				"queue": "shuiliyue-store",
 				"max_batch_size": 10,
 				"max_batch_timeout": 1,
 				"max_concurrency": 4,
 				"max_retries": 8,
 				"retry_delay": 15,
-				"dead_letter_queue": "gmshop-edge-commerce-dlq"
+				"dead_letter_queue": "shuiliyue-store-dlq"
 			}
 		]
 	},
