@@ -35,5 +35,5 @@
 			}
 		]
 	},
-	"triggers": { "crons": ["0 0 * * *"] }
+	"triggers": { "crons": ["* * * * *"] }
 }
