@@ -58,7 +58,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 	head: ({ loaderData }) => {
 		const title =
 			loaderData?.title ??
-			`${loaderData?.name ?? "GMShop Edge"} – ${m.app_title_description()}`;
+			`${loaderData?.name ?? "水里月通信"} – ${m.app_title_description()}`;
 		const logoUrl = loaderData?.logoUrl ?? "/favicon.png";
 		return {
 			meta: [
