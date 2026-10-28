@@ -69,7 +69,7 @@
     "check": "biome check",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
-    "db:migrate:local": "wrangler d1 migrations apply gmshop-edge --local",
+    "db:migrate:local": "wrangler d1 migrations apply shuiliyue-store --local",
     "db:migrate:remote": "wrangler d1 migrations apply DB --remote",
     "seed:local": "bun run scripts/seed-acceptance.ts --local --with-r2",
     "db:push": "drizzle-kit push",
