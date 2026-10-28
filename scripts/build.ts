@@ -226,7 +226,7 @@ async function buildForWorkers(): Promise<void> {
 	}
 
 	const databaseName = database.database_name;
-	const cacheName = "gmshop-edge-cache";
+	const cacheName = "shuiliyue-store-cache";
 	const bucketNames = (config.r2_buckets ?? []).flatMap((bucket) =>
 		bucket.bucket_name ? [bucket.bucket_name] : [],
 	);
